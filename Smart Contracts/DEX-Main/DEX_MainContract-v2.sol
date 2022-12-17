@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 import "./EscrowContract.sol";
 
-contract DEX_MainContract {
+contract DEX_MainContract {0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed
     
     struct SellerFiatAccount {
         string accountNumber;
