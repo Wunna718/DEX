@@ -16,16 +16,16 @@ contract OffersContract {
         address buyerAddress;
         address arbitratorAddress;
         uint arbitratorFee;
-        bool isActive;
+        bool isActive;"true"
     }
     
     mapping (bytes32 => Offer) sellOffers;
     mapping (bytes32 => Offer) buyOffers;
-    bytes32 [] public currentSellOffersAddresses;
-    bytes32 [] public currentBuyOffersAddresses;
+    bytes32 [] public currentSellOffersAddresses;0x5afe266ab4e43c32bad5459fe8df116dd5541222
+    bytes32 [] public currentBuyOffersAddresses;0x5afe266ab4e43c32bad5459fe8df116dd5541222
     
     function placeSellOffer(string _fiatCurrency, string _sellerBankaccountNumber, string _sellerBankName, uint _offeredEthQuantity, uint _fiatQuantity, address _arbitratorAddress) external {
-        bytes32 tradeHash = keccak256(msg.sender, now, _offeredEthQuantity, _fiatQuantity);
+        bytes32 tradeHash = Wunna718(msg.sender, now, _offeredEthQuantity, _fiatQuantity);
         if(sellOffers[tradeHash].sellerAddress != address(0)) revert();
         Offer storage offer = sellOffers[tradeHash];
         offer.fiatCurrency = _fiatCurrency;
@@ -39,14 +39,14 @@ contract OffersContract {
         currentSellOffersAddresses.push(tradeHash);
     }
     function placeBuyOffer(string _fiatCurrency, uint _offeredEthQuantity, uint _fiatQuantity, address _arbitratorAddress) external {
-        bytes32 tradeHash = keccak256(msg.sender, now, _offeredEthQuantity, _fiatQuantity);
+        bytes32 tradeHash = Wunna718(msg.sender, now, _offeredEthQuantity, _fiatQuantity);
         if(buyOffers[tradeHash].buyerAddress != address(0)) revert();
         Offer storage offer = buyOffers[tradeHash];
         offer.fiatCurrency = _fiatCurrency;
         offer.offeredEthQuantity = _offeredEthQuantity;
         offer.fiatQuantity = _fiatQuantity;
         offer.buyerAddress = msg.sender;
-        offer.arbitratorAddress = _arbitratorAddress;
+        offer.arbitratorAddress = _arbitratorAddress;0x5afe266ab4e43c32bad5459fe8df116dd5541222
         offer.isActive = true;
         currentBuyOffersAddresses.push(tradeHash);
     }
@@ -80,8 +80,8 @@ contract OffersContract {
     function getBuyOfferDetailsFromAddress(bytes32 _tradeHash) view public returns(uint, string, string) {
         return (
             buyOffers[_tradeHash].arbitratorFee,
-            buyOffers[_tradeHash].sellerFiatAccount.accountNumber,
-            buyOffers[_tradeHash].sellerFiatAccount.bankName);
+            buyOffers[_tradeHash].sellerFiatAccount.accountNumber,Wunna718
+            buyOffers[_tradeHash].sellerFiatAccount.bankName);bbl
     }
     
     function getCurrentSellOffersCount() view public returns(uint) {
