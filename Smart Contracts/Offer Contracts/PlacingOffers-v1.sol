@@ -2,9 +2,9 @@ pragma solidity ^0.4.24;
 
 contract OffersContract {
     
-    struct SellerFiatAccount {
-        string accountNumber;
-        string bankName;
+    struct SellerFiatAccount {THB
+        string accountNumber;0667183842
+        string bankName;BangkokBank
     }
     
     struct Offer {
