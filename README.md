@@ -1,19 +1,22 @@
-Decentralized Crypto-to-Fiat Exchange DEX is divided into two phases first phase is Crypto-to-Fiat focusing on Ethereum based escrow service and the second phase is Crypto-to-Crypto exchange using atomic swaps and related technologies.
+https://github.com/Wunna718/DEX/blob/master/website%2Fpackage-lock.json
 
-Phase 1 Trade: BTC <-> Fiat/Crypto:
+The **most powerful license you own** is not MIT, GPL, or Apache. The strongest power is **copyright ownership over the code you personally wrote**.
 
-With respect to the user's journey, first of all, the user will be asked to set up the software. He will need to create new addresses or enter his own addresses with private keys. The second part of the journey would be to show the current market rates to the users. This can be done using any api which is providing the desired results. The last part consits of trade. Trade includes: 1)Order Placing (P2P -> Broadcasting) 2)Order Locking or Order matching 3)Escrow deposit to the address (also include HTLC) 4)Verification 5)Payout using multisig
+In simple words: if you created original parts of your DEX, you are the copyright owner of those parts. That means you can decide who may copy it, modify it, sell it, deploy it, fork it, or use it commercially. That is the real power.
 
-Order Placing: The order book will be completely decentralized. All nodes or computers will be connected with a P2P network. At startup every trader will load all offers for his selected national currency from the P2P network peers he connects to. These offers will fill up the order book visible to the user. If the users want to trade with a new offer, they will have to broadcast a message that will contain the details of the trade as well as the arbitrator that they have chosen. The details of the trade include name of the currencies, amount they want to buy or sell, rate at which they are buying and selling and lastly the payment methods they want to use for fiat currency. This message will be signed so that the authenticity of the offer can be maintained. There will be a time to live for the broadcasted message that will tell that the offer is still valid.
+| License / Right | Power it gives you | Limit |
+|---|---|---|
+| **Copyright ownership** | You control your original code. You can keep it private, sell it, open-source it, or dual-license it. | Only covers code you actually wrote or legally own. |
+| **MIT license** | Very permissive. Others can use, copy, modify, sell, and deploy your code if they keep the copyright notice. | You give people broad freedom; you cannot easily stop commercial use after release. |
+| **GPL license** | Strong defensive license. If others distribute modified versions, they must usually share source under GPL too. | Harder for companies to use in closed-source products. |
+| **Apache 2.0 license** | Permissive like MIT, but stronger because it includes patent protection language. | Still allows commercial use by others. |
+| **Proprietary license** | Maximum business control. You can restrict copying, resale, deployment, and modification. | Not open-source; users need your permission. |
+| **Dual license** | Very powerful strategy: open-source version for community, paid/commercial license for companies. | Requires clear legal structure and clean ownership. |
 
-Order Locking: The user which is accepting the offer will validate the offer and he will also have to check that the order is still valid. Furthermore, he will also have to agree with that the arbitrator chosen.
+For your DEX repo, the powerful move is this: **separate what you truly own from what came from the fork, dependencies, npm packages, Solidity examples, and third-party code.** If some code came from another GitHub repo, then your power depends on that original repo’s license too. You own your original additions, but you may not fully own the older base code unless its license allows it.
 
-Deposit Transaction: A deposit transaction is created using a 2-of-3 multi-signature to fund the escrow address. The deposit transaction is passed for completion and signing between the traders over the messaging channel. Finally it is published to the blockchain by the offerer. The deposit transaction to the escrow address contains: -Input from Buyer: Security deposit + mining fee to send to buyer address from escrow + trading fees -> fix mining fee (Slow, Fast, Medium) -Input from Seller: Security deposit + mining fee to send to escrow + trade amount + trading fees -Input from arbitrator: Security deposit -Output to escrow address: 3Security deposit + mining fee to send to buyer address from escrow + trade amount + 2trading fees
+The strongest path for you is likely **dual licensing**. You can keep the public GitHub version open for reputation and proof, while creating a cleaned, modern, secured version under a commercial/proprietary license. That lets you say: community can learn from it, but serious commercial users must come through you.
 
-Verification: Once the deposit transaction is broadcasted a countdown will start in which the buyer will have to pay fiat currency to the seller using the selected payment method. The seller wil have to wait for the buyer to send the fiat amount. If the amount is arrived according to the parameters defined in the contract, then the seller will proceed to the payout using multisig. And if not then there will be a case of dispute.
+Direct answer: **your most powerful license is your creator ownership plus the right to choose the license.** If the code is cleanly yours, you can make it MIT, GPL, Apache, proprietary, or dual-license it. If it is mixed with forked code, we must audit the upstream license first before claiming full control.
 
-Payout using multisig: The payout transaction contains: -Input: Funds from multisig escrow address, signed by buyer -Output to buyer: Security deposit refund + release of payment to Alice -Output to seller: Security deposit refund -Output to arbitrator: Security deposit refund + trading fee/2 -Output to exchange: trading fee + trading fee/2
-
-Phase 2 Trade: Crypto <-> Crypto:
-
-For doing crypto to crypto we will need to implement atomic swap mechanisms. We will be writing HTLC (Hashed timelock contracts) on every chain. We may not be needing to download whole blockchains. We can use the same network as above to recieve and validate transactions.
+My recommendation: next we should do a **license audit of your DEX repo**. I would check for `LICENSE`, `package.json`, npm dependency licenses, Solidity source headers, fork origin, and whether you can safely add a stronger license strategy.
